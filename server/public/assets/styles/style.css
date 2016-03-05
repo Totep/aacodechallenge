@@ -36,7 +36,7 @@ h2 {
     top: 0px;
     width: 100%;
     height: 100%;
-    background: url(images/Film-Reels-1986.jpg) repeat-x 0 0;
+    background: url(../images/Film-Reels-1986.jpg) repeat-x 0 0;
     z-index: -5;
     margin: 0px;
     padding: 0px;
@@ -61,15 +61,14 @@ header {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(images/Earth-Forest-l.jpg) repeat-x 0 0;
+    background: url(../images/Earth-Forest-l.jpg) repeat-x 0 0;
     z-index: 1;
 }
 #submit {
     position: absolute;
-    left: 75%;
+    left: 83%;
     z-index: 3;
-    margin-top: 10%;
-    color: white;
+    margin-top: 9%;
 }
 #content {
     border-radius: 25px;
@@ -102,24 +101,6 @@ footer {
     border-radius: 25px;
     clear: both;
     padding: 0 15px;
-}
-.navbar-right {
-    padding-right: 25px;
-}
-.form-group {
-    padding: 10px;
-}
-.form-panel-width {
-    width: 220px;
-}/*YOU CAN MAKE PANEL AS WIDE AS NEEDED*/
-.color-blue {
-    color: #0080c5;
-}
-.color-red {
-    color: #FF0000;
-}
-.error-message {
-    font-size: 10px;
 }
 
 @media screen and (max-width: 980px) {

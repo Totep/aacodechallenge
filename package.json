@@ -1,0 +1,23 @@
+{
+  "name": "aacodechallenge",
+  "version": "1.0.0",
+  "description": "August Ash Code Challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Totep/aacodechallenge.git"
+  },
+  "author": "Sam Richard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Totep/aacodechallenge/issues"
+  },
+  "homepage": "https://github.com/Totep/aacodechallenge#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
