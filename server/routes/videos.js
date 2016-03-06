@@ -1,6 +1,11 @@
 /**
  * Created by Totep on 3/5/16.
  */
+var express = require('express');
+var router = express.Router();
+var Video = require('./models/videos');
+
+
 //get videos
 router.get('/', function(req, res, next) {
     Video.find({_id: {$exists: true}}, function(err, data){
@@ -39,7 +44,7 @@ router.post('/', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
     var videoID = req.params.id;
     var video = req.body;
-    Event.findByIdAndUpdate(videoID, video, {new:true}, function(err, data){
+    Video.findByIdAndUpdate(videoID, video, {new:true}, function(err, data){
         res.send(data);
     });
 });
