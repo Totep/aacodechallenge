@@ -1,11 +1,16 @@
-//JSON schema Video model
-var Views = require('./views');
+/**
+ * Created by Totep on 3/6/16.
+ */
+/**
+ * Created by Totep on 3/6/16.
+ */
+var Video = require('./videos');
 var Votes = require('./votes');
 
 {
     "title"
 :
-    "Video Schema",
+    "View Schema",
         "type"
 :
     "object",
@@ -20,7 +25,7 @@ var Votes = require('./votes');
             "string"
         }
     ,
-        "title"
+        "video_id"
     :
         {
             "type"
@@ -28,36 +33,28 @@ var Votes = require('./votes');
             "string"
         }
     ,
-        "url"
+        "ip_address"
     :
+        {
+            "type"
+        :
+            "stringr"
+        }
+    ,
+        "user_agent"
+
         {
             "type"
         :
             "string"
         }
     ,
-        "slug"
-    :
+        "referrer"
+
         {
-            "type"
+           "type"
         :
             "string"
-        }
-    ,
-        "view_tally"
-    :
-        {
-            "type"
-        :
-            "number"
-        }
-    ,
-        "vote_tally"
-    :
-        {
-            "type"
-        :
-            "number"
         }
     ,
         "created"
@@ -67,7 +64,7 @@ var Votes = require('./votes');
         :
             "string",
 
-            "format"
+                "format"
         :
             "date-time"
         }
@@ -79,7 +76,7 @@ var Votes = require('./votes');
         :
             "string",
 
-            "format"
+                "format"
         :
             "date-time"
         }
@@ -87,4 +84,6 @@ var Votes = require('./votes');
 
 }
 
-module.exports = json.model('Video', VideoSchema);
+
+
+module.exports = json.model('View', ViewSchema);

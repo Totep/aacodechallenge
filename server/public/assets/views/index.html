@@ -26,7 +26,7 @@
         <section id="content">
             <h2>Recently Uploaded</h2>
             <p>This page demonstrates a 3 column responsive layout, complete with responsive images and jquery slideshow.</p>
-            <a class="recentlyUploaded" ng-repeat="video in videos | orderBy: 'postedon' | limitTo: 10"></a>
+            <a class="recentlyUploaded" ng-repeat="video in videos | orderBy: 'created' | limitTo: 10"></a>
         </section>
 
         <section id="middle">
@@ -36,7 +36,7 @@
             <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
                 iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
                 odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            <a class="mostViewed" ng-repeat="video in videos | orderBy: 'votes' | limitTo: 10"></a>
+            <a class="mostViewed" ng-repeat="video in videos | orderBy: 'vote_tally' | limitTo: 10"></a>
         </section>
 
         <aside id="sidebar">
@@ -48,7 +48,7 @@
             <p>asdfasdf;lkas;dlkfjalskdjfa jsdf;lkjasdflkjasd fljasdf jlkasdf asdf; haweo;ifhaoudfhv;aosnd ha;sdv as vhoiashdv ;asd jasdv alsk dvl jsad </p>
             <p>sofiahoisfj asdlk;faweoijfasodva ;sdvjasldkv jasdv jkdfkjhvsdf hsdfbkjhsdf sdfhvsad;lfj;ai;oisjfgioae gaoij awopfij ;asioisd gh sgio gdsfio </p>
             <p>so;igasj as l;fdkjaweoijsaf ijo;asfo;ijasdfjasf jasdf jasldfjalskfj lasdfjkal;skfl;kajs fgkljasdlkj asfl jksag;lasgl;asljkasdl k;asdfjkl asdf</p>
-            <a class="mostVoted" ng-repeat="video in videos | orderBy: 'views' | limitTo: 10"></a>
+            <a class="mostVoted" ng-repeat="video in videos | orderBy: 'view_tally' | limitTo: 10"></a>
         </aside>
 
         <footer>
