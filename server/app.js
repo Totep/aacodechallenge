@@ -38,7 +38,7 @@ request({
 function authRequest () {
     request({
         method: 'GET',
-        url: 'https://proofapi.herokuapp.com/videos?page&per_page',
+        url: 'https://proofapi.herokuapp.com/videos',
         headers: {
             'Content-Type': 'application/json',
             'X-Auth-Token': auth
@@ -53,7 +53,7 @@ function authRequest () {
 //Gets a video
     request({
         method: 'GET',
-        url: 'https://proofapi.herokuapp.com/videos/' + '{video_id}',
+        url: 'https://proofapi.herokuapp.com/videos/video_id',
         headers: {
             'Content-Type': 'application/json',
             'X-Auth-Token': auth
@@ -85,7 +85,7 @@ function authRequest () {
 
     request({
         method: 'PATCH',
-        url: 'https://proofapi.herokuapp.com/videos/' + '{video_id}',
+        url: 'https://proofapi.herokuapp.com/videos/video_id',
         headers: {
             'Content-Type': 'application/json',
             'X-Auth-Token': auth
@@ -101,7 +101,7 @@ function authRequest () {
 
     request({
         method: 'DELETE',
-        url: 'https://proofapi.herokuapp.com/videos/' + '{video_id}',
+        url: 'https://proofapi.herokuapp.com/videos/video_id',
         headers: {
             'Content-Type': 'application/json',
             'X-Auth-Token': auth
