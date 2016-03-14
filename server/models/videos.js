@@ -2,7 +2,10 @@
 var Views = require('./views');
 var Votes = require('./votes');
 
-{
+var Validator = require('jsonschema').Validator;
+var v = new Validator();
+
+var VideoSchema = {
     "title"
 :
     "Video Schema",
@@ -85,6 +88,6 @@ var Votes = require('./votes');
         }
     }
 
-}
+};
 
-module.exports = json.model('Video', VideoSchema);
+module.exports = VideoSchema;

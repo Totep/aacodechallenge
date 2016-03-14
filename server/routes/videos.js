@@ -3,59 +3,105 @@
  */
 var express = require('express');
 var router = express.Router();
-var Video = require('./models/videos');
+var request = require('request');
+var bodyParser = require('body-parser');
+var Video = require('../models/videos');
+var auth;
 
-
-//get videos
-router.get('/', function(req, res, next) {
-    Video.find({_id: {$exists: true}}, function(err, data){
-        res.send(data);
-    });
+//Auth post
+request({
+    method: 'POST',
+    url: 'https://proofapi.herokuapp.com/sessions',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    //Manually add in email address and password as they are not committed on github
+    body:
+}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    //returns JSON data as JSON data (was coming in a javascript)
+    body = JSON.parse(body);
+    console.log('Response:', body);
+    console.log(body.data.attributes.auth_token);
+    auth = JSON.stringify(body.data.attributes.auth_token);
 });
 
-//get single video
-router.get('/:id', function(req, res, next) {
-    var videoId = req.params.id;
-    Video.find({_id: videoId}, function(err, data){
-        console.log(data);
-        res.send(data[0]);
-    });
+//Gets all videos
 
+request({
+    method: 'GET',
+    url: 'https://proofapi.herokuapp.com/videos?page&per_page',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': auth
+    }}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
 });
 
-//post video
-router.post('/', function(req, res, next) {
-    console.log('eventRouter:', req.body);
-    var newVideo = req.body;
 
 
-    if(newVideo.title != undefined) {
-        Video.create(newVideo, function (err, data) {
-            if(err){
-                console.log('video post:', err);
-            }
-            res.send(data);
-        });
-    }
 
+//Gets a video
+request({
+    method: 'GET',
+    url: 'https://proofapi.herokuapp.com/videos/' + '{video_id}',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': auth
+    }}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
 });
 
-//update video
-router.put('/:id', function(req, res, next) {
-    var videoID = req.params.id;
-    var video = req.body;
-    Video.findByIdAndUpdate(videoID, video, {new:true}, function(err, data){
-        res.send(data);
-    });
+//Create a video
+
+request({
+    method: 'POST',
+    url: 'https://proofapi.herokuapp.com/videos',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': auth
+    },
+    body: "{  \"title\": \"The Highest Mountain\",  \"url\": \"http://vimeo.com/22439234\",  \"slug\": \"the-highest-mountain\"}"
+}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
 });
 
-//delete video
-router.delete('/:id', function(req, res, next) {
-    var ID = req.params.id;
-    Video.delete(ID, function(err){
-        if(err) throw err;
-        res.send();
-    });
+
+//Update a video
+
+request({
+    method: 'PATCH',
+    url: 'https://proofapi.herokuapp.com/videos/' + '{video_id}',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': auth
+    },
+    body: "{  \"title\": \"The Highest Mountain\",  \"slug\": \"the-highest-mountain\"}"
+}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
+});
+
+//Delete a video
+
+request({
+    method: 'DELETE',
+    url: 'https://proofapi.herokuapp.com/videos/' +'{video_id}',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': auth
+    }}, function (error, response, body) {
+    console.log('Status:', response.statusCode);
+    console.log('Headers:', JSON.stringify(response.headers));
+    console.log('Response:', body);
 });
 
 module.exports = router;
