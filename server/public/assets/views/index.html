@@ -32,7 +32,8 @@
                 omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
                 repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
                 maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
-            <a class="recentlyUploaded" ng-repeat="video in videos | orderBy: 'created' | limitTo: 10"></a>
+            <a class="recentlyUploaded" ng-repeat="video in videos | orderBy: 'created' | limitTo: 10" ng-show"<input type="radio" name="upvote" value="1">
+            <input type="radio" name="downvote" value="-1">"</a>
         </section>
 
         <section id="middle">

@@ -22,7 +22,7 @@ request({
         'Content-Type': 'application/json'
     },
     //Manually add in email address and password as they are not committed on github
-    body:
+    body: "{ \"email\": \"samuelgrichard@gmail.com\", \"password\": \"taillessly-autotoxin-knoblike\"}"
 }, function (error, response, body) {
     console.log('Status:', response.statusCode);
     console.log('Headers:', JSON.stringify(response.headers));
